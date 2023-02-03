@@ -15,8 +15,6 @@ ha_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIxNzVmZDJlYWZmODA0OGJ
 print(endpoint(rgb_luminence))
 print(endpoint(light_toggle))
 
-direction = ""
-data = {}
 headers = {
 	"Content-Type": "application/json",
 	"Authorization": "Bearer " + ha_token
@@ -87,9 +85,6 @@ def change_color(icon_number):
 		green = int(color.green * 255)
 		blue = int(color.blue * 255)
 		alpha = int(color.alpha * 255)
-		print("Selected color: RGBA({}, {}, {}, {})".format(
-			red, green, blue, alpha
-		))
 	color_chooser.destroy()
 	api_send(endpoint(rgb_luminence), data_select(icon_number, None, [red,green,blue]))
 
